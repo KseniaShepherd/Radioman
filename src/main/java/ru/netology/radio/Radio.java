@@ -3,8 +3,8 @@ package ru.netology.radio;
 public class Radio {
     private int currentRadioStation;
     private int currentVolume;
-    private int maxVolume = 10;
-    private int maxStation = 9;
+    private int maxVolume = 100;
+    private int maxStation;
 
 
     public int getCurrentRadioStation() {
@@ -12,7 +12,11 @@ public class Radio {
     }
 
     public void setCurrentRadioStation(int currentRadioStation) {
-        this.currentRadioStation = currentRadioStation;
+        if (currentRadioStation <= maxStation) {
+            this.currentRadioStation = currentRadioStation;
+        } else {
+            System.out.println("Ошибка! Такой радиостанции нет!");
+        }
     }
 
     public int getCurrentVolume() {
@@ -21,6 +25,30 @@ public class Radio {
 
     public void setCurrentVolume(int currentVolume) {
         this.currentVolume = currentVolume;
+    }
+
+    public int getMaxVolume() {
+        return maxVolume;
+    }
+
+    public void setMaxVolume(int maxVolume) {
+        this.maxVolume = maxVolume;
+    }
+
+    public int getMaxStation() {
+        return maxStation;
+    }
+
+    public void setMaxStation(int maxStation) {
+        this.maxStation = maxStation;
+    }
+
+    public Radio(int maxStation) {
+        this.maxStation = maxStation;
+    }
+
+    public Radio() {
+        this.maxStation = 9;
     }
 
     public void increaseVolume() {
@@ -35,18 +63,20 @@ public class Radio {
         }
     }
 
-    public void switchToNextStation(){
-        if (currentRadioStation == maxStation){
+    public void switchToNextStation() {
+        if (currentRadioStation == maxStation) {
             currentRadioStation = 0;
             return;
-        } currentRadioStation++;
+        }
+        currentRadioStation++;
     }
 
-    public void switchToPreviousStation(){
-        if (currentRadioStation == 0){
+    public void switchToPreviousStation() {
+        if (currentRadioStation == 0) {
             currentRadioStation = maxStation;
             return;
-        } currentRadioStation--;
+        }
+        currentRadioStation--;
     }
 
 }
