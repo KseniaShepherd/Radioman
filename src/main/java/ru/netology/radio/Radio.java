@@ -12,7 +12,7 @@ public class Radio {
     }
 
     public Radio() {
-        this.maxStation = 9;
+        this.maxStation = 10;
     }
 
     public int getCurrentRadioStation() {
@@ -64,7 +64,7 @@ public class Radio {
     }
 
     public void switchToNextStation() {
-        if (currentRadioStation == maxStation) {
+        if (currentRadioStation == maxStation-1) {
             currentRadioStation = 0;
             return;
         }
@@ -73,7 +73,7 @@ public class Radio {
 
     public void switchToPreviousStation() {
         if (currentRadioStation == 0) {
-            currentRadioStation = maxStation;
+            currentRadioStation = maxStation-1;
             return;
         }
         currentRadioStation--;
