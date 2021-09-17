@@ -56,7 +56,7 @@ class RadioTest {
     @org.junit.jupiter.api.Test
     void switchToNextStationFromLast() {
         Radio radio = new Radio(56);
-        radio.setCurrentRadioStation(56);
+        radio.setCurrentRadioStation(55);
         radio.switchToNextStation();
         int expected = 0;
 
