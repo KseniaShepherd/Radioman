@@ -7,18 +7,18 @@ class RadioTest {
     @org.junit.jupiter.api.Test
     void increaseVolumeUnderMaximum() {
         Radio radio = new Radio();
-        radio.setCurrentVolume(9);
+        radio.setCurrentVolume(1);
         radio.increaseVolume();
-        int expected = 10;
+        int expected = 2;
 
         assertEquals(expected,radio.getCurrentVolume());
     }
     @org.junit.jupiter.api.Test
     void increaseVolumeAfterMaximum() {
         Radio radio = new Radio();
-        radio.setCurrentVolume(10);
+        radio.setCurrentVolume(100);
         radio.increaseVolume();
-        int expected = 10;
+        int expected = 100;
 
         assertEquals(expected,radio.getCurrentVolume());
     }
@@ -45,7 +45,7 @@ class RadioTest {
 
     @org.junit.jupiter.api.Test
     void switchToNextStation() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(5);
         radio.setCurrentRadioStation(3);
         radio.switchToNextStation();
         int expected = 4;
@@ -55,8 +55,8 @@ class RadioTest {
 
     @org.junit.jupiter.api.Test
     void switchToNextStationFromLast() {
-        Radio radio = new Radio();
-        radio.setCurrentRadioStation(9);
+        Radio radio = new Radio(56);
+        radio.setCurrentRadioStation(55);
         radio.switchToNextStation();
         int expected = 0;
 
